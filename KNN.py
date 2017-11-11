@@ -105,17 +105,32 @@ def getresultinK(arr,K):
         return "Tidak"
 
 
-for i in range(0, 5):
-    s = a[i].split(',')
-    x1 = float(s[1])
-    y1 = float(s[2])
-    # print x1, y1
-    hasileuclidean = euclidab(x1, y1, a, 5, 15)
-    print getresultinK(hasileuclidean, 3)
+
+
+
+testing = []
+for i in range(0,5):
+	testing.append(a[i])
+
+evaluasi = []
+for i in range(5,15):
+	evaluasi.append(a[i])
+
+for i in range(len(testing)):
+	s = testing[i].split(',')
+	x1 = float(s[1])
+	y1 = float(s[2])
+	hasileuclidean = euclidab(x1, y1, evaluasi, 0, len(evaluasi))
+	print getresultinK(hasileuclidean, 5)
+	print hasileuclidean
+
+
+
 
 def foldarray(arr,K):
     panjang = len(arr)
     s = m.floor(panjang/K)
+
     
 
 #
