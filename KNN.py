@@ -65,7 +65,7 @@ def euclidab(x1, y1, source, a, b):
         x2 = float(s[1])
         y2 = float(s[2])
         nilai = euclidean(x1, y1, x2, y2)
-        x.append([nilai, s[3].replace('\n', '').replace('\r', ''), i + 1])
+        x.append([nilai, s[3].replace('\n', '').replace('\r', ''), s[0]])
     # print "Nilai X sebelum di sorting : ", x
     quickSort(x)
     # print "Nilai X sesudah di sorting : ", x
@@ -99,14 +99,19 @@ def hitungArray(x, y, z, K, a):
     for i in range(y, z):
         training.append(a[i])
 
+    # print training
     for i in range(len(evaluasi)):
         s = evaluasi[i].split(',')
         x1 = float(s[1])
         y1 = float(s[2])
         hasileuclidean = euclidab(x1, y1, training, 0, len(training))
-        # print hasileuclidean
+        x = hasileuclidean.__getslice__(0,5)
+        print "Data ke-", s[0]
+        print "Hasil : ", getresultinK(hasileuclidean,1), getresultinK(hasileuclidean,3), getresultinK(hasileuclidean,5)
+        for i in range(len(x)):
+            print x[i][2],"\t", x[i][0] ,"\t" ,  x[i][1]
         # hasil.append(getresultinK(hasileuclidean, K))
-        print getresultinK(hasileuclidean,K)#, hasileuclidean.__getslice__(0,K)
+        # print getresultinK(hasileuclidean,K), hasileuclidean.__getslice__(0,K)
     # return hasil
 
 # def gantengArray(array,panjangarray,kfold,knn):
@@ -123,10 +128,9 @@ def hitungArray(x, y, z, K, a):
 # for i in range(0,15):
 #     print hitung[i]
 
-# hitungArray(0,3,15,5,a)
-# hitungArray(3,6,15,5,a)
-# hitungArray(6,9,15,5,a)
-# hitungArray(9,12,15,5,a)
-# hitungArray(12,15,15,5,a)
-
-hitungArray(15,20,15,7,a)
+hitungArray(0,3,15,1,a)
+hitungArray(3,6,15,1,a)
+hitungArray(6,9,15,1,a)
+hitungArray(9,12,15,1,a)
+hitungArray(12,15,15,1,a)
+hitungArray(15,20,15,1,a)
